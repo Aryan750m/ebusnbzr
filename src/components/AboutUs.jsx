@@ -54,7 +54,8 @@ const AboutUsMarkup = `<div id="page-about" class="page">
           <img 
             src="https://redleafdigitals.com/assets/img/about.png"
             alt="Our Team"
-            style="border-radius:16px;width:100%;height:420px;object-fit:cover"
+            class="about-team-image"
+            style="border-radius:16px;width:100%;height:420px;object-fit:contain"
           />
         </div>
 

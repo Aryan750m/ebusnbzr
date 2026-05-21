@@ -451,7 +451,8 @@ nav a.active {
 .s-card img {
   width: 100%;
   height: 172px;
-  object-fit: cover
+  object-fit: contain;
+  background: #fff
 }
 
 .s-card-body {
@@ -831,13 +832,19 @@ nav a.active {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 18px
+  margin-bottom: 18px;
+  background: #fff
 }
 
 .ps-image-wrap img {
   width: 100%;
   height: 100%;
   object-fit: contain
+}
+
+.about-team-image {
+  background: #fff;
+  object-position: center
 }
 
 .ps-card h2 {
@@ -2190,6 +2197,7 @@ footer {
   width: 100%;
   height: 420px;
   overflow: hidden;
+  background: #111;
 
   display: flex;
   align-items: center;
@@ -2202,6 +2210,14 @@ footer {
   object-fit: cover;
   object-position: center;
   display: block;
+}
+
+.product-services-hero {
+  background: #7f0d08
+}
+
+.product-services-hero .ps-hero-image {
+  object-fit: contain
 }
 
 .ps-hero-overlay {
@@ -2231,7 +2247,9 @@ footer {
 
 @media (max-width: 768px) {
   .ps-hero {
-    height: 260px;
+    height: auto;
+    min-height: 0;
+    aspect-ratio: 16 / 9;
   }
 
   .ps-hero-content h1 {
@@ -2355,7 +2373,42 @@ nav a.active::after {
 }
 
 .ps-hero-image.parallax-layer {
-  transform: translate3d(0, var(--parallax-y), 0) scale(1.04)
+  transform: translate3d(0, var(--parallax-y), 0)
+}
+
+@media(max-width:640px) {
+  .page {
+    padding-bottom: 84px
+  }
+
+  .s-card img {
+    height: 210px;
+    padding: 10px
+  }
+
+  .ps-card {
+    min-height: auto
+  }
+
+  .ps-image-wrap {
+    height: 230px;
+    margin-bottom: 16px
+  }
+
+  .w-card img {
+    object-fit: contain;
+    background: #fff
+  }
+
+  .about-team-image {
+    height: auto !important;
+    max-height: 340px;
+    object-fit: contain !important
+  }
+
+  .ps-hero-image.parallax-layer {
+    transform: none
+  }
 }
 
 .btn,

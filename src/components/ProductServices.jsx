@@ -5,7 +5,7 @@ function ProductServices() {
     <main id="page-services" className="page">
       
       {/* Hero Section */}
-      <section className="ps-hero">
+      <section className="ps-hero product-services-hero">
   <img
     src="https://www.provenprotocol.com/wp-content/uploads/2024/09/Products-and-Services.jpg"
     alt="Products and Services"

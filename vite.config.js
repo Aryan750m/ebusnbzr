@@ -11,6 +11,11 @@ export default defineConfig({
         changeOrigin: true,
         rewrite: () => '/ebusinessbazaar.com/retrive-jobs.php',
       },
+      '/api/upload-job': {
+        target: 'https://ebusinessbazar.com',
+        changeOrigin: true,
+        rewrite: () => '/ebusinessbazaar.com/upload-jobs.php',
+      },
     },
   },
 })

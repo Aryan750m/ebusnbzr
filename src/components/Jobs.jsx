@@ -1,9 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 
 const ITEMS_PER_PAGE = 12
-const JOBS_ENDPOINT = import.meta.env.DEV
-  ? '/api/jobs'
-  : 'https://ebusinessbazar.com/ebusinessbazaar.com/retrive-jobs.php'
+const JOBS_ENDPOINT = '/api/jobs'
 const APPLY_URL =
   'https://docs.google.com/forms/d/e/1FAIpQLScnWMSb1C0LZq1te5djaLDrmeDp7ilMZinXYv6vK-Mp4O1UCw/viewform'
 
@@ -109,7 +107,8 @@ function Jobs() {
           throw new Error('Network response was not ok')
         }
 
-        const data = await response.json()
+        const text = await response.text()
+        const data = JSON.parse(text)
 
         if (!Array.isArray(data)) {
           throw new Error('Invalid job data format')
@@ -180,7 +179,7 @@ function Jobs() {
     : 'Currently no job postings available.'
 
   function showJobsList() {
-    window.history.pushState({}, '', '/')
+    window.history.pushState({}, '', '/jobs/')
     setSelectedJobId(null)
     window.scrollTo({ top: 0, behavior: 'smooth' })
   }
@@ -238,7 +237,7 @@ function Jobs() {
       <section className="jobs-board">
         <div className="container jobs-shell">
           <div className="jobs-post-row">
-            <a className="jobs-post-btn" href="https://ebusinessbazaar.com/post-jobs/">
+            <a className="jobs-post-btn" href="/post-jobs/" data-page="postJobs">
               Post Job
             </a>
           </div>

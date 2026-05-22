@@ -6,6 +6,7 @@ import FloatingContact from './components/FloatingContact'
 import Footer from './components/Footer'
 import Home from './components/Home'
 import Jobs from './components/Jobs'
+import PostJobs from './components/PostJobs'
 import ProductServices from './components/ProductServices'
 import ServiceDetail from './components/ServiceDetail'
 import SiteShell from './components/SiteShell'
@@ -16,6 +17,7 @@ const pages = {
   services: ProductServices,
   serviceDetail: ServiceDetail,
   jobs: Jobs,
+  postJobs: PostJobs,
   about: AboutUs,
   enquiry: Enquiry,
 }
@@ -24,6 +26,7 @@ const pagePaths = {
   home: '/',
   services: '/product-services/',
   jobs: '/jobs/',
+  postJobs: '/post-jobs/',
   about: '/about-us/',
   enquiry: '/contact-us/',
 }
@@ -44,6 +47,9 @@ const revealSelector = [
   '.service-process-item',
   '.jobs-board .container > *',
   '.jobs-card',
+  '.post-jobs-hero-wrap > *',
+  '.post-jobs-guide',
+  '.post-job-form',
   '.job-detail-layout > *',
   '.contact-block',
   '.enq-form',
@@ -56,6 +62,7 @@ const magneticSelector = [
   '.ps-view-btn',
   '.jobs-btn',
   '.jobs-post-btn',
+  '.post-job-submit',
   '.job-detail-apply',
   '.job-back-btn',
   '.service-back-link',
@@ -128,6 +135,10 @@ function getRouteFromPath() {
 
   if (cleanPath === 'jobs') {
     return { page: 'jobs', serviceSlug: null }
+  }
+
+  if (cleanPath === 'post-jobs') {
+    return { page: 'postJobs', serviceSlug: null }
   }
 
   if (cleanPath === 'about-us') {
@@ -464,7 +475,11 @@ function App() {
 
   return (
     <div onClick={handleClick}>
-      <SiteShell activePage={activePage === 'serviceDetail' ? 'services' : activePage} />
+      <SiteShell
+        activePage={
+          activePage === 'serviceDetail' ? 'services' : activePage === 'postJobs' ? 'jobs' : activePage
+        }
+      />
       <Page serviceSlug={serviceSlug} />
       <Footer />
       <FloatingContact />

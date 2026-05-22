@@ -1322,6 +1322,197 @@ nav a.active {
   }
 }
 
+/* POST JOBS PAGE */
+.post-jobs-hero {
+  background: linear-gradient(135deg, #fff 0%, #f8fafc 54%, #fff1f1 100%);
+  border-bottom: 1px solid var(--line);
+  padding: 82px 0 72px;
+  overflow: hidden
+}
+
+.post-jobs-hero-wrap {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 360px;
+  gap: 38px;
+  align-items: center
+}
+
+.post-jobs-hero .display {
+  color: var(--ink);
+  font-size: clamp(2.8rem, 5.5vw, 5rem);
+  letter-spacing: 0;
+  margin-bottom: 16px
+}
+
+.post-jobs-summary {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 28px;
+  box-shadow: var(--shadow-lg)
+}
+
+.post-jobs-summary span,
+.post-job-form-head span,
+.post-jobs-contact span {
+  display: block;
+  color: var(--red);
+  font-size: .72rem;
+  font-weight: 800;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  margin-bottom: 10px
+}
+
+.post-jobs-summary strong {
+  display: block;
+  color: var(--ink);
+  font-size: 1.25rem;
+  line-height: 1.3;
+  margin-bottom: 10px
+}
+
+.post-jobs-summary p {
+  color: var(--sub);
+  line-height: 1.65;
+  font-size: .95rem
+}
+
+.post-jobs-section {
+  background: #fff;
+  padding: 72px 0 96px
+}
+
+.post-jobs-layout {
+  display: grid;
+  grid-template-columns: 340px minmax(0, 1fr);
+  gap: 34px;
+  align-items: start
+}
+
+.post-jobs-guide,
+.post-job-form {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+}
+
+.post-jobs-guide {
+  padding: 28px;
+  position: sticky;
+  top: 98px
+}
+
+.post-jobs-guide h2 {
+  font-size: 1.35rem;
+  line-height: 1.25;
+  margin-bottom: 18px
+}
+
+.post-jobs-guide ul {
+  display: grid;
+  gap: 12px;
+  list-style: none;
+  margin: 0 0 26px;
+  padding: 0
+}
+
+.post-jobs-guide li {
+  color: var(--sub);
+  line-height: 1.5;
+  display: grid;
+  grid-template-columns: 20px 1fr;
+  gap: 8px
+}
+
+.post-jobs-guide li::before {
+  content: '✓';
+  color: var(--red);
+  font-weight: 900
+}
+
+.post-jobs-contact {
+  border-top: 1px solid var(--line);
+  padding-top: 20px
+}
+
+.post-jobs-contact a {
+  display: block;
+  color: var(--ink);
+  font-weight: 700;
+  margin-top: 8px;
+  word-break: break-word
+}
+
+.post-jobs-contact a:hover {
+  color: var(--red)
+}
+
+.post-job-form {
+  padding: 32px
+}
+
+.post-job-form-head {
+  margin-bottom: 26px
+}
+
+.post-job-form-head h2 {
+  font-size: clamp(1.7rem, 3vw, 2.3rem);
+  margin: 0 0 8px;
+  line-height: 1.12
+}
+
+.post-job-form-head p {
+  color: var(--sub);
+  line-height: 1.65;
+  max-width: 620px
+}
+
+.post-job-form .fg {
+  margin-bottom: 18px
+}
+
+.post-job-form input,
+.post-job-form textarea {
+  border-radius: 10px;
+  background: #fbfdff
+}
+
+.post-job-submit {
+  width: 100%;
+  justify-content: center;
+  min-height: 50px;
+  margin-top: 4px
+}
+
+.post-job-submit:disabled {
+  opacity: .72;
+  cursor: wait;
+  transform: none
+}
+
+.post-job-status {
+  margin-top: 16px;
+  padding: 14px 16px;
+  border-radius: 10px;
+  font-weight: 700;
+  line-height: 1.45;
+  text-align: center
+}
+
+.post-job-status.success {
+  background: #ecfdf5;
+  color: #047857;
+  border: 1px solid #a7f3d0
+}
+
+.post-job-status.error {
+  background: #fff1f2;
+  color: #be123c;
+  border: 1px solid #fecdd3
+}
+
 /* JOB DETAILS PAGE */
 .job-detail-page {
   background: #f8f9fa;
@@ -1912,6 +2103,19 @@ footer {
     font-size: 2.2rem
   }
 
+  .post-jobs-hero-wrap,
+  .post-jobs-layout {
+    grid-template-columns: 1fr
+  }
+
+  .post-jobs-summary {
+    max-width: 560px
+  }
+
+  .post-jobs-guide {
+    position: static
+  }
+
   .job-detail-page {
     padding: 24px 0 56px
   }
@@ -2102,6 +2306,29 @@ footer {
 
   .jobs-heading {
     font-size: 1.8rem
+  }
+
+  .post-jobs-hero {
+    padding: 54px 0 48px
+  }
+
+  .post-jobs-summary,
+  .post-jobs-guide,
+  .post-job-form {
+    border-radius: 10px
+  }
+
+  .post-jobs-summary,
+  .post-jobs-guide {
+    padding: 22px
+  }
+
+  .post-jobs-section {
+    padding: 44px 0 72px
+  }
+
+  .post-job-form {
+    padding: 24px
   }
 
   .search-input {

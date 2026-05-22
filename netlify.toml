@@ -3,6 +3,18 @@
   publish = "dist"
 
 [[redirects]]
+  from = "/api/jobs"
+  to = "https://ebusinessbazar.com/ebusinessbazaar.com/retrive-jobs.php"
+  status = 200
+  force = true
+
+[[redirects]]
+  from = "/api/upload-job"
+  to = "https://ebusinessbazar.com/ebusinessbazaar.com/upload-jobs.php"
+  status = 200
+  force = true
+
+[[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200

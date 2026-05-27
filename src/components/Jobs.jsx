@@ -236,26 +236,58 @@ function Jobs() {
     <div id="page-jobs" className="page">
       <section className="jobs-board">
         <div className="container jobs-shell">
+          <div className="jobs-hero">
+            <div className="jobs-hero-inner">
+              <div className="jobs-hero-copy">
+                <span className="eyebrow">Careers</span>
+                <h1 className="jobs-heading">🚀 Explore Job Opportunities</h1>
+                <p className="jobs-subtitle">
+                  Browse the latest openings, filter quickly, and apply in seconds. Our job board is designed to help you find the right role with confidence.
+                </p>
+              </div>
+
+              <div className="jobs-panel">
+                <div className="job-stat-card">
+                  <strong>{filteredJobs.length}</strong>
+                  <p>Active roles available right now</p>
+                </div>
+                <div className="job-stat-card">
+                  <strong>Fast response</strong>
+                  <p>Applications are reviewed quickly so you know the next step sooner.</p>
+                </div>
+                <div className="job-stat-card">
+                  <strong>Remote-friendly</strong>
+                  <p>Many roles are flexible or hybrid, suited for modern working styles.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
           <div className="jobs-post-row">
             <a className="jobs-post-btn" href="/post-jobs/" data-page="postJobs">
               Post Job
             </a>
           </div>
 
-          <h1 className="jobs-heading">🚀 Explore Job Opportunities</h1>
-
           <div className="search-box-container">
             <div className="search-box">
               <input
                 type="text"
                 className="search-input"
-                placeholder="Search jobs by title, company, or location..."
+                placeholder="Search jobs by title, location, or salary..."
                 value={searchQuery}
                 onChange={(event) => {
                   setSearchQuery(event.target.value)
                   setCurrentPage(1)
                 }}
               />
+              <button
+                className="search-action-btn"
+                type="button"
+                onClick={() => setCurrentPage(1)}
+              >
+                Search
+              </button>
               <button
                 className="clear-btn"
                 type="button"
@@ -266,6 +298,39 @@ function Jobs() {
                 }}
               >
                 ❌
+              </button>
+            </div>
+            <div className="search-suggestions">
+              Popular filters:
+              <button
+                className="suggestion-chip"
+                type="button"
+                onClick={() => {
+                  setSearchQuery('remote')
+                  setCurrentPage(1)
+                }}
+              >
+                Remote
+              </button>
+              <button
+                className="suggestion-chip"
+                type="button"
+                onClick={() => {
+                  setSearchQuery('full-time')
+                  setCurrentPage(1)
+                }}
+              >
+                Full-time
+              </button>
+              <button
+                className="suggestion-chip"
+                type="button"
+                onClick={() => {
+                  setSearchQuery('marketing')
+                  setCurrentPage(1)
+                }}
+              >
+                Marketing
               </button>
             </div>
           </div>
@@ -287,12 +352,16 @@ function Jobs() {
               <div className="jobs-grid">
                 {currentJobs.map((job) => (
                   <article className="jobs-card" key={job.id}>
-                    <h2 className="job-title">{job.title || 'Untitled Role'}</h2>
-                    <div className="salary">💰 {job.salary || 'Salary not disclosed'}</div>
-                    <div className="tags">
-                      <span className="tag">📍 {job.location || 'Location not shared'}</span>
+                    <div className="job-card-top">
+                      <span className="job-chip">Now Hiring</span>
+                      <span className="job-chip job-chip-secondary">{job.location || 'Location not shared'}</span>
                     </div>
-                    <p className="description">{truncate(job.description)}</p>
+                    <h2 className="job-title">{job.title || 'Untitled Role'}</h2>
+                    <div className="job-meta-row">
+                      <span className="salary">💰 {job.salary || 'Salary not disclosed'}</span>
+                      <span className="tag">Quick review</span>
+                    </div>
+                    <p className="description">{truncate(job.description, 130)}</p>
                     <div className="job-buttons">
                       <a
                         className="jobs-btn view"

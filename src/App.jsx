@@ -73,7 +73,6 @@ const magneticSelector = [
 const tiltSelector = [
   '.s-card',
   '.w-card',
-  '.ps-card',
   '.jobs-card',
   '.t-card',
   '.service-detail-card',
